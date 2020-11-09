@@ -28,6 +28,7 @@ import {
   mergeLanes,
   pickArbitraryLane,
 } from './ReactFiberLane';
+import {isDisallowedContextReadInDEV, exitDisallowedContextReadInDEV} from './ReactDisallowContextRead';
 
 import invariant from 'shared/invariant';
 import is from 'shared/objectIs';
@@ -47,8 +48,6 @@ let currentlyRenderingFiber: Fiber | null = null;
 let lastContextDependency: ContextDependency<mixed> | null = null;
 let lastContextWithAllBitsObserved: ReactContext<any> | null = null;
 
-let isDisallowedContextReadInDEV: boolean = false;
-
 export function resetContextDependencies(): void {
   // This is called right before React yields execution, to ensure `readContext`
   // cannot be called outside the render phase.
@@ -56,19 +55,7 @@ export function resetContextDependencies(): void {
   lastContextDependency = null;
   lastContextWithAllBitsObserved = null;
   if (__DEV__) {
-    isDisallowedContextReadInDEV = false;
-  }
-}
-
-export function enterDisallowedContextReadInDEV(): void {
-  if (__DEV__) {
-    isDisallowedContextReadInDEV = true;
-  }
-}
-
-export function exitDisallowedContextReadInDEV(): void {
-  if (__DEV__) {
-    isDisallowedContextReadInDEV = false;
+    exitDisallowedContextReadInDEV();
   }
 }
 
@@ -323,7 +310,7 @@ export function readContext<T>(
   if (__DEV__) {
     // This warning would fire if you read context inside a Hook like useMemo.
     // Unlike the class check below, it's not enforced in production for perf.
-    if (isDisallowedContextReadInDEV) {
+    if (isDisallowedContextReadInDEV()) {
       console.error(
         'Context can only be read while React is rendering. ' +
           'In classes, you can read it in the render method or getDerivedStateFromProps. ' +

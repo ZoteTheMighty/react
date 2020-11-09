@@ -91,7 +91,7 @@ import {NoLane, NoLanes, isSubsetOfLanes, mergeLanes} from './ReactFiberLane';
 import {
   enterDisallowedContextReadInDEV,
   exitDisallowedContextReadInDEV,
-} from './ReactFiberNewContext.new';
+} from './ReactDisallowContextRead';
 import {Callback, ShouldCapture, DidCapture} from './ReactFiberFlags';
 
 import {debugRenderPhaseSideEffectsForStrictMode} from 'shared/ReactFeatureFlags';
