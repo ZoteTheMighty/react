@@ -20,13 +20,12 @@ import type {SuspenseInstance} from './ReactFiberHostConfig';
 import type {WorkTag} from './ReactWorkTags';
 import type {TypeOfMode} from './ReactTypeOfMode';
 import type {Flags} from './ReactFiberFlags';
-import type {Lane, LanePriority, Lanes, LaneMap} from './ReactFiberLane';
 import type {RootTag} from './ReactRootTags';
 import type {TimeoutHandle, NoTimeout} from './ReactFiberHostConfig';
 import type {Wakeable} from 'shared/ReactTypes';
 import type {Interaction} from 'scheduler/src/Tracing';
 
-// Unwind Circular: moved from ReactFiberHooks.old
+// unwind-cycles: moved from ReactFiberHooks.old
 export type HookType =
   | 'useState'
   | 'useReducer'
@@ -43,6 +42,7 @@ export type HookType =
   | 'useMutableSource'
   | 'useOpaqueIdentifier';
 
+// FIXME (unwind-cycles): Co-locate with definitions in `ReactSchedulerPriorities`
 export type ReactPriorityLevel = 99 | 98 | 97 | 96 | 95 | 90;
 
 export type ContextDependency<T> = {
@@ -269,6 +269,30 @@ export type FiberRoot = {
   ...SuspenseCallbackOnlyFiberRootProperties,
   ...
 };
+
+// unwind-cycles: moved LanePriority, Lanes, Lane, LaneMap from ReactFiberLanes
+export opaque type LanePriority =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17;
+export opaque type Lanes = number;
+export opaque type Lane = number;
+export opaque type LaneMap<T> = Array<T>;
 
 type BasicStateAction<S> = (S => S) | S;
 type Dispatch<A> = A => void;
