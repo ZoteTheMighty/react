@@ -7,7 +7,8 @@
  * @flow
  */
 
-import type {FiberRoot, ReactPriorityLevel, Lane, LanePriority, Lanes, LaneMap} from './ReactInternalTypes';
+import type {ReactPriorityLevel} from './ReactFiberSchedulerPriorities';
+import type {FiberRoot} from './ReactInternalTypes';
 
 import invariant from 'shared/invariant';
 
@@ -20,7 +21,28 @@ import {
   NoPriority as NoSchedulerPriority,
 } from './ReactFiberSchedulerPriorities';
 
-export type {Lane, LanePriority, Lanes, LaneMap};
+export opaque type LanePriority =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17;
+export opaque type Lanes = number;
+export opaque type Lane = number;
+export opaque type LaneMap<T> = Array<T>;
 
 export const SyncLanePriority: LanePriority = 15;
 export const SyncBatchedLanePriority: LanePriority = 14;

@@ -42,9 +42,6 @@ export type HookType =
   | 'useMutableSource'
   | 'useOpaqueIdentifier';
 
-// FIXME (unwind-cycles): Co-locate with definitions in `ReactSchedulerPriorities`
-export type ReactPriorityLevel = 99 | 98 | 97 | 96 | 95 | 90;
-
 export type ContextDependency<T> = {
   context: ReactContext<T>,
   observedBits: number,
@@ -269,30 +266,6 @@ export type FiberRoot = {
   ...SuspenseCallbackOnlyFiberRootProperties,
   ...
 };
-
-// unwind-cycles: moved LanePriority, Lanes, Lane, LaneMap from ReactFiberLanes
-export opaque type LanePriority =
-  | 0
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
-  | 6
-  | 7
-  | 8
-  | 9
-  | 10
-  | 11
-  | 12
-  | 13
-  | 14
-  | 15
-  | 16
-  | 17;
-export opaque type Lanes = number;
-export opaque type Lane = number;
-export opaque type LaneMap<T> = Array<T>;
 
 type BasicStateAction<S> = (S => S) | S;
 type Dispatch<A> = A => void;

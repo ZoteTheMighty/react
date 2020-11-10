@@ -7,7 +7,8 @@
  * @flow
  */
 
-import type {ReactPriorityLevel} from './ReactInternalTypes';
+// unwind-cycles: Extract type and constant definitions to common dependency
+export type ReactPriorityLevel = 99 | 98 | 97 | 96 | 95 | 90;
 
 // Except for NoPriority, these correspond to Scheduler priorities. We use
 // ascending numbers so we can compare them like numbers. They start at 90 to

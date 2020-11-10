@@ -61,7 +61,7 @@ if (enableSchedulerTracing) {
   );
 }
 
-=,
+export type SchedulerCallback = (isSync: boolean) => SchedulerCallback | null;
 
 type SchedulerCallbackOptions = {timeout?: number, ...};
 
