@@ -13,10 +13,9 @@ import type {
   MutableSourceSubscribeFn,
   ReactContext,
 } from 'shared/ReactTypes';
-import type {Fiber, Dispatcher} from './ReactInternalTypes';
+import type {Fiber, Dispatcher, ReactPriorityLevel} from './ReactInternalTypes';
 import type {Lanes, Lane} from './ReactFiberLane';
 import type {HookFlags} from './ReactHookEffectTags';
-import type {ReactPriorityLevel} from './ReactInternalTypes';
 import type {FiberRoot} from './ReactInternalTypes';
 import type {OpaqueIDType} from './ReactFiberHostConfig';
 
@@ -72,6 +71,8 @@ import {markWorkInProgressReceivedUpdate} from './ReactFiberBeginWork.old';
 import {
   UserBlockingPriority,
   NormalPriority,
+} from './ReactFiberSchedulerPriorities';
+import {
   runWithPriority,
   getCurrentPriorityLevel,
 } from './SchedulerWithReactIntegration.old';

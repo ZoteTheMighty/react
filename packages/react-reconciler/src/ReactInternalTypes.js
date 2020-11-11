@@ -25,6 +25,31 @@ import type {TimeoutHandle, NoTimeout} from './ReactFiberHostConfig';
 import type {Wakeable} from 'shared/ReactTypes';
 import type {Interaction} from 'scheduler/src/Tracing';
 
+export type {ReactPriorityLevel} from './ReactFiberSchedulerPriorities';
+
+export type LanePriority =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17;
+export type Lanes = number;
+export type Lane = number;
+export type LaneMap<T> = Array<T>;
+
 // unwind-cycles: moved from ReactFiberHooks.old
 export type HookType =
   | 'useState'
