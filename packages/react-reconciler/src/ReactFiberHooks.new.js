@@ -77,7 +77,7 @@ import {
 import invariant from 'shared/invariant';
 import getComponentName from 'shared/getComponentName';
 import is from 'shared/objectIs';
-import {markWorkInProgressReceivedUpdate} from './ReactFiberBeginWork.new';
+import {markWorkInProgressReceivedUpdate} from './ReactDidRecieveUpdate';
 import {
   UserBlockingPriority,
   NormalPriority,

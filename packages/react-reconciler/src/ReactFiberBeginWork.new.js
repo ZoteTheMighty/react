@@ -199,12 +199,15 @@ import {
 } from './ReactFiberWorkLoop.new';
 import {unstable_wrap as Schedule_tracing_wrap} from 'scheduler/tracing';
 import {setWorkInProgressVersion} from './ReactMutableSource.new';
+import {
+  markWorkInProgressReceivedUpdate,
+  clearWorkInProgressReceivedUpdate,
+  didReceiveUpdate,
+} from './ReactDidRecieveUpdate'
 
 import {disableLogs, reenableLogs} from 'shared/ConsolePatchingDev';
 
 const ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
-
-let didReceiveUpdate: boolean = false;
 
 let didWarnAboutBadClass;
 let didWarnAboutModulePatternComponent;
@@ -367,7 +370,7 @@ function updateForwardRef(
     );
   }
 
-  if (current !== null && !didReceiveUpdate) {
+  if (current !== null && !didReceiveUpdate()) {
     bailoutHooks(current, workInProgress, renderLanes);
     return bailoutOnAlreadyFinishedWork(current, workInProgress, renderLanes);
   }
@@ -526,7 +529,7 @@ function updateSimpleMemoComponent(
       // Prevent bailout if the implementation changed due to hot reload.
       (__DEV__ ? workInProgress.type === current.type : true)
     ) {
-      didReceiveUpdate = false;
+      clearWorkInProgressReceivedUpdate();
       if (!includesSomeLane(renderLanes, updateLanes)) {
         // The pending lanes were cleared at the beginning of beginWork. We're
         // about to bail out, but there might be other lanes that weren't
@@ -550,7 +553,7 @@ function updateSimpleMemoComponent(
       } else if ((current.flags & ForceUpdateForLegacySuspense) !== NoFlags) {
         // This is a special case that only exists for legacy mode.
         // See https://github.com/facebook/react/pull/19216.
-        didReceiveUpdate = true;
+        markWorkInProgressReceivedUpdate();
       }
     }
   }
@@ -766,7 +769,7 @@ function updateFunctionComponent(
     );
   }
 
-  if (current !== null && !didReceiveUpdate) {
+  if (current !== null && !didReceiveUpdate()) {
     bailoutHooks(current, workInProgress, renderLanes);
     return bailoutOnAlreadyFinishedWork(current, workInProgress, renderLanes);
   }
@@ -2257,7 +2260,7 @@ function updateDehydratedSuspenseComponent(
   // We use lanes to indicate that a child might depend on context, so if
   // any context has changed, we need to treat is as if the input might have changed.
   const hasContextChanged = includesSomeLane(renderLanes, current.childLanes);
-  if (didReceiveUpdate || hasContextChanged) {
+  if (didReceiveUpdate() || hasContextChanged) {
     // This boundary has changed since the first render. This means that we are now unable to
     // hydrate it. We might still be able to hydrate it using a higher priority lane.
     const root = getWorkInProgressRoot();
@@ -2891,10 +2894,6 @@ function updateScopeComponent(current, workInProgress, renderLanes) {
   return workInProgress.child;
 }
 
-export function markWorkInProgressReceivedUpdate() {
-  didReceiveUpdate = true;
-}
-
 function bailoutOnAlreadyFinishedWork(
   current: Fiber | null,
   workInProgress: Fiber,
@@ -3025,9 +3024,9 @@ function beginWork(
     ) {
       // If props or context changed, mark the fiber as having performed work.
       // This may be unset if the props are determined to be equal later (memo).
-      didReceiveUpdate = true;
+      markWorkInProgressReceivedUpdate();
     } else if (!includesSomeLane(renderLanes, updateLanes)) {
-      didReceiveUpdate = false;
+      clearWorkInProgressReceivedUpdate();
       // This fiber does not have any pending work. Bailout without entering
       // the begin phase. There's still some bookkeeping we that needs to be done
       // in this optimized path, mostly pushing stuff onto the stack.
@@ -3196,17 +3195,17 @@ function beginWork(
       if ((current.flags & ForceUpdateForLegacySuspense) !== NoFlags) {
         // This is a special case that only exists for legacy mode.
         // See https://github.com/facebook/react/pull/19216.
-        didReceiveUpdate = true;
+        markWorkInProgressReceivedUpdate();
       } else {
         // An update was scheduled on this fiber, but there are no new props
         // nor legacy context. Set this to false. If an update queue or context
         // consumer produces a changed value, it will set this to true. Otherwise,
         // the component will assume the children have not changed and bail out.
-        didReceiveUpdate = false;
+        clearWorkInProgressReceivedUpdate();
       }
     }
   } else {
-    didReceiveUpdate = false;
+    clearWorkInProgressReceivedUpdate();
   }
 
   // Before entering the begin phase, clear pending update priority.

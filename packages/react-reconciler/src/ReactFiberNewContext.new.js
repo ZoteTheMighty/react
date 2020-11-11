@@ -33,7 +33,7 @@ import {isDisallowedContextReadInDEV, exitDisallowedContextReadInDEV} from './Re
 import invariant from 'shared/invariant';
 import is from 'shared/objectIs';
 import {createUpdate, enqueueUpdate, ForceUpdate} from './ReactUpdateQueue.new';
-import {markWorkInProgressReceivedUpdate} from './ReactFiberBeginWork.new';
+import {markWorkInProgressReceivedUpdate} from './ReactDidRecieveUpdate';
 import {enableSuspenseServerRenderer} from 'shared/ReactFeatureFlags';
 
 const valueCursor: StackCursor<mixed> = createCursor(null);
