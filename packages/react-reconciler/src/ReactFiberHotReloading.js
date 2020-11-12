@@ -16,7 +16,7 @@ export type {
   ScheduleRefresh,
   ScheduleRoot,
   FindHostInstancesForRefresh,
-} from './ReactFiberHotReloading';
+} from './ReactFiberHotReloading.new';
 
 import {
   setRefreshHandler as setRefreshHandler_old,
