@@ -88,16 +88,16 @@ import type {Fiber} from './ReactInternalTypes';
 import type {Lanes, Lane} from './ReactFiberLane';
 
 import {NoLane, NoLanes, isSubsetOfLanes, mergeLanes} from './ReactFiberLane';
-import {
-  enterDisallowedContextReadInDEV,
-  exitDisallowedContextReadInDEV,
-} from './ReactFiberNewContext.new';
+// import {
+//   enterDisallowedContextReadInDEV,
+//   exitDisallowedContextReadInDEV,
+// } from './ReactFiberNewContext.new';
 import {Callback, ShouldCapture, DidCapture} from './ReactFiberFlags';
 
 import {debugRenderPhaseSideEffectsForStrictMode} from 'shared/ReactFeatureFlags';
 
 import {StrictMode} from './ReactTypeOfMode';
-import {markSkippedUpdateLanes} from './ReactFiberWorkLoop.new';
+// import {markSkippedUpdateLanes} from './ReactFiberWorkLoop.new';
 
 import invariant from 'shared/invariant';
 
