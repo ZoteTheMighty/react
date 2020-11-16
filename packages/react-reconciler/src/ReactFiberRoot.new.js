@@ -11,7 +11,7 @@ import type {FiberRoot, SuspenseHydrationCallbacks} from './ReactInternalTypes';
 import type {RootTag} from './ReactRootTags';
 
 import {noTimeout, supportsHydration} from './ReactFiberHostConfig';
-import {createHostRootFiber} from './ReactFiber.new';
+// import {createHostRootFiber} from './ReactFiber.new';
 import {
   NoLanes,
   NoLanePriority,
