@@ -20,7 +20,7 @@ import type {FiberRoot} from './ReactInternalTypes';
 import type {Lanes} from './ReactFiberLane';
 import type {SuspenseState} from './ReactFiberSuspenseComponent.new';
 import type {UpdateQueue} from './ReactUpdateQueue.new';
-import type {FunctionComponentUpdateQueue} from './ReactFiberHooks.new';
+// import type {FunctionComponentUpdateQueue} from './ReactFiberHooks.new';
 import type {Wakeable} from 'shared/ReactTypes';
 import type {ReactPriorityLevel} from './ReactInternalTypes';
 import type {OffscreenState} from './ReactFiberOffscreenComponent';
