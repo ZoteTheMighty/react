@@ -44,7 +44,7 @@ import {
   ForceUpdate,
   enqueueUpdate,
 } from './ReactUpdateQueue.new';
-import {markFailedErrorBoundaryForHotReloading} from './ReactFiberHotReloading.new';
+// import {markFailedErrorBoundaryForHotReloading} from './ReactFiberHotReloading.new';
 import {
   suspenseStackCursor,
   InvisibleParentSuspenseContext,
