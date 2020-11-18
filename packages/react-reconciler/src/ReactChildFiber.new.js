@@ -45,7 +45,7 @@ import {
   createFiberFromPortal,
 } from './ReactFiber.new';
 // import {emptyRefsObject} from './ReactFiberClassComponent.new';
-import {isCompatibleFamilyForHotReloading} from './ReactFiberHotReloading.new';
+// import {isCompatibleFamilyForHotReloading} from './ReactFiberHotReloading.new';
 import {StrictMode} from './ReactTypeOfMode';
 
 let didWarnAboutMaps;
