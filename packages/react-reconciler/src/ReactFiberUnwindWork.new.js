@@ -39,7 +39,7 @@ import {
   popTopLevelContextObject as popTopLevelLegacyContextObject,
 } from './ReactFiberContext.new';
 import {popProvider} from './ReactFiberNewContext.new';
-import {popRenderLanes} from './ReactFiberWorkLoop.new';
+// import {popRenderLanes} from './ReactFiberWorkLoop.new';
 import {transferActualDuration} from './ReactProfilerTimer.new';
 
 import invariant from 'shared/invariant';
