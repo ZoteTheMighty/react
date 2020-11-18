@@ -58,11 +58,11 @@ import {
 import getComponentName from 'shared/getComponentName';
 
 import {isDevToolsPresent} from './ReactFiberDevToolsHook.new';
-import {
-  resolveClassForHotReloading,
-  resolveFunctionForHotReloading,
-  resolveForwardRefForHotReloading,
-} from './ReactFiberHotReloading.new';
+// import {
+//   resolveClassForHotReloading,
+//   resolveFunctionForHotReloading,
+//   resolveForwardRefForHotReloading,
+// } from './ReactFiberHotReloading.new';
 import {NoLanes} from './ReactFiberLane';
 import {
   NoMode,
