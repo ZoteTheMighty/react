@@ -55,7 +55,7 @@ import {
   requestEventTime,
   requestUpdateLane,
   scheduleUpdateOnFiber,
-} from './ReactFiberWorkLoop.new';
+} from './ReactFiberWork.new';
 import {logForceUpdateScheduled, logStateUpdateScheduled} from './DebugTracing';
 
 import {disableLogs, reenableLogs} from 'shared/ConsolePatchingDev';

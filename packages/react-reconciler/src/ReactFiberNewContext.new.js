@@ -32,7 +32,7 @@ import {
 import invariant from 'shared/invariant';
 import is from 'shared/objectIs';
 import {createUpdate, enqueueUpdate, ForceUpdate} from './ReactUpdateQueue.new';
-// import {markWorkInProgressReceivedUpdate} from './ReactFiberBeginWork.new';
+// import {markWorkInProgressReceivedUpdate} from './ReactFiberWork.new';
 import {enableSuspenseServerRenderer} from 'shared/ReactFeatureFlags';
 
 const valueCursor: StackCursor<mixed> = createCursor(null);

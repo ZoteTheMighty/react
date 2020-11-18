@@ -196,7 +196,7 @@ import {
   getExecutionContext,
   RetryAfterError,
   NoContext,
-} from './ReactFiberWorkLoop.new';
+} from './ReactFiberWork.new';
 import {unstable_wrap as Schedule_tracing_wrap} from 'scheduler/tracing';
 import {setWorkInProgressVersion} from './ReactMutableSource.new';
 

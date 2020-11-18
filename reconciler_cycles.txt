@@ -1,10 +1,9 @@
-Processed 116 files (3.1s) (5 warnings)
+Processed 114 files (3.2s) (5 warnings)
 
-1) ReactFiberBeginWork.new.js > ReactFiberClassComponent.new.js > ReactFiberWorkLoop.new.js
-2) ReactFiberBeginWork.new.js > ReactFiberClassComponent.new.js > ReactFiberWorkLoop.new.js > ReactFiberCommitWork.new.js
-3) ReactFiberWorkLoop.new.js > ReactFiberCommitWork.new.js
-4) ReactFiberWorkLoop.new.js > ReactFiberCompleteWork.new.js
-5) ReactFiberBeginWork.new.js > ReactFiberClassComponent.new.js > ReactFiberWorkLoop.new.js > ReactFiberHooks.new.js
-6) ReactFiberWorkLoop.new.js > ReactFiberHooks.new.js
-7) ReactFiberWorkLoop.new.js > ReactFiberThrow.new.js
+1) ReactFiberClassComponent.new.js > ReactFiberWork.new.js
+2) ReactFiberWork.new.js > ReactFiberHooks.new.js
+3) ReactFiberWork.new.js > ReactFiberHotReloading.new.js > ReactFiberContainer.new.js
+4) ReactFiberWork.new.js > ReactFiberHotReloading.new.js
+5) ReactFiberWork.new.js > ReactFiberReconciler.js > ReactFiberReconciler.new.js
+6) ReactFiberWork.new.js > ReactFiberThrow.new.js
 

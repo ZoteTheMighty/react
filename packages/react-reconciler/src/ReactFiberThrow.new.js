@@ -56,7 +56,7 @@ import {
   markLegacyErrorBoundaryAsFailed,
   isAlreadyFailedLegacyErrorBoundary,
   pingSuspendedRoot,
-} from './ReactFiberWorkLoop.new';
+} from './ReactFiberWork.new';
 import {logCapturedError} from './ReactFiberErrorLogger';
 import {logComponentSuspended} from './DebugTracing';
 import {markComponentSuspended} from './SchedulingProfiler';

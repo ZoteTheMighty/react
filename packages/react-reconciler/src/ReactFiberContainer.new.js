@@ -36,7 +36,7 @@ import {
   scheduleUpdateOnFiber,
   warnIfNotScopedWithMatchingAct,
   warnIfUnmockedScheduler,
-} from './ReactFiberWorkLoop.new';
+} from './ReactFiberWork.new';
 import {createUpdate, enqueueUpdate} from './ReactUpdateQueue.new';
 import {
   isRendering as ReactCurrentFiberIsRendering,
