@@ -44,7 +44,7 @@ import {
   createFiberFromText,
   createFiberFromPortal,
 } from './ReactFiber.new';
-import {emptyRefsObject} from './ReactFiberClassComponent.new';
+// import {emptyRefsObject} from './ReactFiberClassComponent.new';
 import {isCompatibleFamilyForHotReloading} from './ReactFiberHotReloading.new';
 import {StrictMode} from './ReactTypeOfMode';
 
